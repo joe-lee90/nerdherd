@@ -1,20 +1,13 @@
-import './App.css';
-import { useState, useEffect } from "react";
+import Home from './pages/Home'
+import './App.css'
+import {Route, Routes} from 'react-router-dom'
 
-function App() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);
-
+export default function App() {
   return (
-    <div className="App">
-      <h1>Page Count: {count}</h1>
+    <div className="app">
+      <Routes>
+        <Route path='/' exact element={<Home/>}/>
+      </Routes>
     </div>
   );
 }
-
-export default App;
