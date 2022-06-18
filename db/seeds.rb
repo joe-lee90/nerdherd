@@ -1,7 +1,44 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+puts "Seeding..."
+
+# Users
+# username, image
+nerdherd = User.create(username: "nerdherd", image: "https://ih1.redbubble.net/image.246115354.3901/fposter,small,wall_texture,product,750x1000.u4.jpg")
+zamboni  = User.create(username: "zamboni",  image: "https://ca.slack-edge.com/T02MD9XTF-U02VBJHA88P-0e543c671b27-512")
+
+# Events
+# name, game, image, location, date, description, sponsors
+# date (year, month, day, hour, minute, second)
+valorant = Event.create(name: "Intel Extreme Masters Season XVI - Katowice",
+                        game: "Counter-Strike: Global Offensive",
+                        image: "https://s3-eu-central-1.amazonaws.com/www-staging.esports.com/wp-media-folder-esports-com/app/uploads/2022/02/IEM-Katowice-2022-1.jpg",
+                        location: "Spodek Arena, Katowice",
+                        date: DateTime.new(2022, 9, 27, 16),
+                        description: "24 of the best CSGO teams in the world battle it out for a $1,000,000 prize pool!",
+                        sponsors: "Intel, Predator Gaming, 1xBet, DHL, Monster Energy, Coinbase, U.S. Air Force")
+
+league   = Event.create(name: "2021 World Championship",
+                        game: "League of Legends",
+                        image: "https://resources.esportsinsider.com/esportsinsider/2021/08/WORLDS_EUROPE.png",
+                        location: "Laugardalshöll, Reykjavík, Iceland",
+                        date: DateTime.new(2021, 10, 5, 12),
+                        description: "24 teams from all regions of the world battle it out in a months-long race for the Summoner's Cup!",
+                        sponsors: "AXE, Bose, Cisco, MasterCard, Mercedes-Benz, OPPO, RedBull, Secretlab, Spotify, State Farm, Verizon")
+
+dota     = Event.create(name: "The International 2022",
+                        game: "Dota 2",
+                        image: "https://liquipedia.net/commons/images/b/ba/Dota2_Aegis_allmode.png",
+                        location: "Indoor Stadium & Suntec Singapore, Singapore",
+                        date: DateTime.new(2022, 10, 15, 18),
+                        description: "The top 20 teams fight to be world champions over a $1,600,000 prize pool",
+                        sponsors: "MSI, TCL, DHL, HyperX, Rivalry")
+
+# Tickets
+# active, price, event_id, user_id
+# tickets that belong to nerdherd are unsold tickets
+t1 = Ticket.create(active: true, price: 59, event_id: valorant.id, user_id: zamboni.id)
+t2 = Ticket.create(active: true, price: 59, event_id: valorant.id, user_id: nerdherd.id)
+t3 = Ticket.create(active: true, price: 89,event_id: league.id, user_id: nerdherd.id)
+
+
+
+puts "Finished seeding"
