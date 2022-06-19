@@ -1,20 +1,24 @@
 import React from 'react'
 import './Home.css'
 import { useState, useEffect } from 'react'
+import EventContainer from '../components/EventContainer'
 
 function Home() {
   const [events, setEvents] = useState([])
 
   useEffect(() => {
-    fetch('http://127.0.0.1:3000/events')
+    fetch('/events')
     .then((res) => res.json())
-    .then((data) => setEvents(data))
-  })
-
-  console.log(events)
+    .then((data) => {
+      setEvents(data)
+      document.title = "nerdherd: Buy tickets for eSports and other nerdcore events!"})
+  }, [])
 
   return (
-    <div>Home</div>
+    <div>
+      Home
+      <EventContainer events={events} />
+    </div>
   )
 }
 

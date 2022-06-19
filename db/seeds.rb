@@ -6,7 +6,7 @@ nerdherd = User.create(username: "nerdherd", image: "https://ih1.redbubble.net/i
 zamboni  = User.create(username: "zamboni",  image: "https://ca.slack-edge.com/T02MD9XTF-U02VBJHA88P-0e543c671b27-512")
 
 # Events
-# name, game, image, location, date, description, sponsors
+# name, game, image, location, date, description, sponsors, price
 # datetime (year, month, day, hour, minute, second)
 valorant = Event.create(name: "Intel Extreme Masters Season XVI - Katowice",
                         game: "Counter-Strike: Global Offensive",
@@ -14,7 +14,8 @@ valorant = Event.create(name: "Intel Extreme Masters Season XVI - Katowice",
                         location: "Spodek Arena, Katowice",
                         date: DateTime.new(2022, 9, 27, 16),
                         description: "24 of the best CSGO teams in the world battle it out for a $1,000,000 prize pool!",
-                        sponsors: "Intel, Predator Gaming, 1xBet, DHL, Monster Energy, Coinbase, U.S. Air Force")
+                        sponsors: "Intel, Predator Gaming, 1xBet, DHL, Monster Energy, Coinbase, U.S. Air Force",
+                        price: 59)
 
 league   = Event.create(name: "2021 World Championship",
                         game: "League of Legends",
@@ -22,22 +23,24 @@ league   = Event.create(name: "2021 World Championship",
                         location: "Laugardalshöll, Reykjavík, Iceland",
                         date: DateTime.new(2021, 10, 5, 12),
                         description: "24 teams from all regions of the world battle it out in a months-long race for the Summoner's Cup!",
-                        sponsors: "AXE, Bose, Cisco, MasterCard, Mercedes-Benz, OPPO, RedBull, Secretlab, Spotify, State Farm, Verizon")
+                        sponsors: "AXE, Bose, Cisco, MasterCard, Mercedes-Benz, OPPO, RedBull, Secretlab, Spotify, State Farm, Verizon",
+                        price: 89)
 
 dota     = Event.create(name: "The International 2022",
                         game: "Dota 2",
-                        image: "https://liquipedia.net/commons/images/b/ba/Dota2_Aegis_allmode.png",
+                        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqfJAD_Tj07ROBIKcnfHsCbGfzJWsFvr0xTQ&usqp=CAU",
                         location: "Indoor Stadium & Suntec Singapore, Singapore",
                         date: DateTime.new(2022, 10, 15, 18),
                         description: "The top 20 teams fight to be world champions over a $1,600,000 prize pool",
-                        sponsors: "MSI, TCL, DHL, HyperX, Rivalry")
+                        sponsors: "MSI, TCL, DHL, HyperX, Rivalry",
+                        price: 45)
 
 # Tickets
-# active, price, event_id, user_id
+# active, event_id, user_id
 # tickets that belong to nerdherd are unsold tickets
-t1 = Ticket.create(active: true, price: 59, event_id: valorant.id, user_id: zamboni.id)
-t2 = Ticket.create(active: true, price: 59, event_id: valorant.id, user_id: nerdherd.id)
-t3 = Ticket.create(active: true, price: 89,event_id: league.id, user_id: nerdherd.id)
+t1 = Ticket.create(active: true, event_id: valorant.id, user_id: zamboni.id)
+t2 = Ticket.create(active: true, event_id: valorant.id, user_id: nerdherd.id)
+t3 = Ticket.create(active: true, event_id: league.id, user_id: nerdherd.id)
 
 
 
