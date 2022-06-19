@@ -7,7 +7,7 @@ zamboni  = User.create(username: "zamboni",  image: "https://ca.slack-edge.com/T
 
 # Events
 # name, game, image, location, date, description, sponsors
-# date (year, month, day, hour, minute, second)
+# datetime (year, month, day, hour, minute, second)
 valorant = Event.create(name: "Intel Extreme Masters Season XVI - Katowice",
                         game: "Counter-Strike: Global Offensive",
                         image: "https://s3-eu-central-1.amazonaws.com/www-staging.esports.com/wp-media-folder-esports-com/app/uploads/2022/02/IEM-Katowice-2022-1.jpg",
