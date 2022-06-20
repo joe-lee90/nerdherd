@@ -1,6 +1,7 @@
 import React from 'react'
 import './NavBar.css'
 import { useNavigate } from 'react-router-dom'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 function NavBar() {
   const navigate = useNavigate();
@@ -14,9 +15,9 @@ function NavBar() {
   }
 
   return (
-    <div>
+    <div className="navbar">
         <img id='nerdherdLogo' src='/nerdherd_logo.png' alt='nerdherd_logo' onClick={handleHomeClick}/>
-        <img src='https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg' alt='profile' onClick={handleProfileClick}/>
+        <AccountCircleIcon onClick={handleProfileClick}/>
     </div>
   )
 }

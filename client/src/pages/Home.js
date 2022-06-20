@@ -16,7 +16,6 @@ function Home() {
 
   return (
     <div>
-      Home
       <EventContainer events={events} />
     </div>
   )
