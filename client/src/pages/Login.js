@@ -12,10 +12,9 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom'
 
-
 const theme = createTheme();
 
-export default function SignIn({ setUser }) {
+export default function SignIn({ user, setUser }) {
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -26,10 +25,11 @@ export default function SignIn({ setUser }) {
       body: data 
     })
     .then((res) => res.json())
-    .then((user) => {
-      setUser(user)
-      console.log(user)})
-    // navigate('/')
+    .then((login) => setUser(login))
+
+    console.log(user)
+    if (user)
+      navigate('/home')
   };
 
   return (

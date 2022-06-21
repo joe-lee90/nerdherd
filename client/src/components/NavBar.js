@@ -8,9 +8,11 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
+import { useAuthenticatedUser } from "../App";
 
 const NavBar = () => {
   const navigate = useNavigate();
+  const user = useAuthenticatedUser();
 
   const handleHomeClick = () => {
     navigate('/')
@@ -51,7 +53,7 @@ const NavBar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Profile">
               <IconButton onClick={handleProfileClick} sx={{ p: 0 }}>
-                {/* <Avatar alt={user.username} /> */}
+                <Avatar/>
               </IconButton>
             </Tooltip>
           </Box>

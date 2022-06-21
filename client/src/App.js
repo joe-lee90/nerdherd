@@ -27,8 +27,8 @@ export default function App() {
       <div className="app">
         <NavBar />
         <Routes>
-          <Route path='/'        exact element={<Home/>}/>
-          <Route path='/login'   exact element={<Login setUser={setUser}/>}/>
+          <Route path='/'        exact element={<Login user={user} setUser={setUser}/>}/>
+          <Route path='/home'    exact element={<Home/>}/>
           <Route path='/signup'  exact element={<SignUp setUser={setUser}/>}/>
           <Route path='/profile' exact element={<UserProfilePage setUser={setUser}/>}/>
         </Routes>

@@ -16,6 +16,8 @@ import { useNavigate } from 'react-router-dom'
 const theme = createTheme();
 
 export default function SignUp({ setUser }) {
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -31,9 +33,7 @@ export default function SignUp({ setUser }) {
     .then((res) => res.json())
     .then((user) => {
       setUser(user)
-      console.log(user)})
-
-      // navigate('/')
+      navigate('/home')})
   };
 
   return (
@@ -88,7 +88,7 @@ export default function SignUp({ setUser }) {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/login" variant="body2">
+                <Link href="/" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>

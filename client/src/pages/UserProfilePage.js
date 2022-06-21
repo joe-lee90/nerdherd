@@ -2,8 +2,11 @@ import React from 'react'
 import './UserProfilePage.css'
 import { useState, useEffect } from 'react'
 import TicketContainer from '../components/TicketContainer'
+import { useNavigate } from 'react-router-dom'
+import Button from '@mui/material/Button';
 
 function UserProfilePage({ setUser }) {
+  const navigate = useNavigate();
   const [tickets, setTickets] = useState([])
 
   useEffect(() => {
@@ -12,16 +15,21 @@ function UserProfilePage({ setUser }) {
     .then((data) => setTickets(data))
   })
 
-  // const handleLogout = () => {
-  //   fetch("/logout?" + new URLSearchParams({ username: user.username }), {
-  //     method: "DELETE",
-  //   })
-  //   .then(() => setUser(null))
-  // }
+  const handleLogout = () => {
+    fetch("/logout", {
+      method: "DELETE",
+    })
+    .then(() => {
+      setUser(null)
+      navigate('/')})
+  }
 
   return (
-    <div>
+    <div className='profilePage'>
       <TicketContainer tickets={tickets} />
+        <Button variant="outlined" color="error" onClick={handleLogout}>
+          Logout
+        </Button>
     </div>
   )
 }
