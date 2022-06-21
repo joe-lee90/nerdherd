@@ -3,7 +3,7 @@ import './UserProfilePage.css'
 import { useState, useEffect } from 'react'
 import TicketContainer from '../components/TicketContainer'
 
-function UserProfilePage() {
+function UserProfilePage({ setUser }) {
   const [tickets, setTickets] = useState([])
 
   useEffect(() => {
@@ -11,6 +11,13 @@ function UserProfilePage() {
     .then((res) => res.json())
     .then((data) => setTickets(data))
   })
+
+  // const handleLogout = () => {
+  //   fetch("/logout?" + new URLSearchParams({ username: user.username }), {
+  //     method: "DELETE",
+  //   })
+  //   .then(() => setUser(null))
+  // }
 
   return (
     <div>

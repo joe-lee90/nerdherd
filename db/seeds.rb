@@ -1,9 +1,17 @@
+puts "🗑 Clearing database"
+
+User.destroy_all
+Event.destroy_all
+Ticket.destroy_all
+
+puts "✅ Done cleaning!"
+
 puts "Seeding..."
 
 # Users
 # username, image
-nerdherd = User.create(username: "nerdherd", image: "https://ih1.redbubble.net/image.246115354.3901/fposter,small,wall_texture,product,750x1000.u4.jpg")
-zamboni  = User.create(username: "zamboni",  image: "https://ca.slack-edge.com/T02MD9XTF-U02VBJHA88P-0e543c671b27-512")
+nerdherd = User.create(username: "nerdherd", password_digest: BCrypt::Password.create("nerdherd"), image: "https://ih1.redbubble.net/image.246115354.3901/fposter,small,wall_texture,product,750x1000.u4.jpg")
+zamboni  = User.create(username: "zamboni", password_digest: BCrypt::Password.create("zamboni"), image: "https://ca.slack-edge.com/T02MD9XTF-U02VBJHA88P-0e543c671b27-512")
 
 # Events
 # name, game, image, location, date, description, sponsors, price
@@ -22,7 +30,7 @@ league   = Event.create(name: "2021 World Championship",
                         image: "https://resources.esportsinsider.com/esportsinsider/2021/08/WORLDS_EUROPE.png",
                         location: "Laugardalshöll, Reykjavík, Iceland",
                         date: DateTime.new(2021, 10, 5, 12),
-                        description: "24 teams from all regions of the world battle it out in a months-long race for the Summoner's Cup!",
+                        description: "24 teams from all regions of the world duke it out in a months-long campaign for the Summoner's Cup!",
                         sponsors: "AXE, Bose, Cisco, MasterCard, Mercedes-Benz, OPPO, RedBull, Secretlab, Spotify, State Farm, Verizon",
                         price: 89)
 

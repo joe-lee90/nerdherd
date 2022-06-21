@@ -1,5 +1,7 @@
 class TicketsController < ApplicationController
   before_action :set_ticket, only: %i[ show update destroy ]
+  before_action :authorize
+  skip_before_action :authorize, only: [:index, :show]
 
   # GET /tickets
   def index
@@ -47,5 +49,9 @@ class TicketsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def ticket_params
       params.fetch(:ticket, {})
+    end
+
+    def authorize
+      return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
     end
 end

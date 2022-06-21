@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   resources :tickets
   resources :events
   resources :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-  get '/hello', to: 'application#hello_world'
+  post "/login", to: "session#create"
+  post "/signup", to: "users#create"
+  delete "/logout", to: "session#destroy"
+  get "/me", to: "users#show"
+
 end
