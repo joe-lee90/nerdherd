@@ -24,8 +24,9 @@ export default function SignUp({ setUser }) {
       password: data.get('password'),
     });
 
-    fetch("/signup?" + new URLSearchParams(data.get('username'), data.get('password')), {
+    fetch("/signup", {
       method: "POST",
+      body: data
     })
     .then((res) => res.json())
     .then((user) => {

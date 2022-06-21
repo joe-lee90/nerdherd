@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  wrap_parameters false
   before_action :set_user, only: %i[ show update destroy ]
 
   # GET /users
@@ -15,9 +16,8 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
-
-    if @user.save
+    @user = User.create(user_params)
+    if @user.valid?
       render json: @user, status: :created, location: @user
     else
       render json: @user.errors, status: :unprocessable_entity
@@ -47,6 +47,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.permit(:username, :image, :password, :password_confirmation)
+      params.permit(:username, :password)
     end
 end

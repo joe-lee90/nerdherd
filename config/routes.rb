@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   resources :events
   resources :users
 
-  post "/login", to: "session#create"
+  post "/login", to: "sessions#create"
   post "/signup", to: "users#create"
-  delete "/logout", to: "session#destroy"
+  delete "/logout", to: "sessions#destroy"
   get "/me", to: "users#show"
 
 end

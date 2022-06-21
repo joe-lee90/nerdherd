@@ -12,6 +12,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom'
 
+
 const theme = createTheme();
 
 export default function SignIn({ setUser }) {
@@ -20,14 +21,14 @@ export default function SignIn({ setUser }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    fetch("/login?" + new URLSearchParams(data.get('username'), data.get('password')), {
+    fetch("/login", {
       method: "POST",
+      body: data 
     })
     .then((res) => res.json())
     .then((user) => {
       setUser(user)
       console.log(user)})
-
     // navigate('/')
   };
 
