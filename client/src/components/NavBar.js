@@ -21,7 +21,7 @@ const NavBar = () => {
   }
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{ background: '#E3EBF8' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Tooltip title="Home">
@@ -37,7 +37,7 @@ const NavBar = () => {
                 fontFamily: 'monospace',
                 fontWeight: 700,
                 letterSpacing: '.2rem',
-                color: 'inherit',
+                color: 'black',
                 textDecoration: 'none',
               }}
             >
