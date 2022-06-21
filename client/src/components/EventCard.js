@@ -10,7 +10,7 @@ import Moment from 'moment'
 
 function EventCard({ event }) {
   return (
-    <Card sx={{ maxWidth: 500 }}>
+    <Card className='eventCard' sx={{ maxWidth: 500 }}>
       <CardMedia
         component="img"
         maxheight="250"
@@ -32,7 +32,7 @@ function EventCard({ event }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">${event.price} Buy</Button>
+        <Button className='buyButton' size="small">${event.price} Buy</Button>
       </CardActions>
     </Card>
   )

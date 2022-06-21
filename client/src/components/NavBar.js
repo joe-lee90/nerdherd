@@ -36,7 +36,7 @@ const NavBar = () => {
                 display: { xs: 'none', md: 'flex' },
                 fontFamily: 'monospace',
                 fontWeight: 700,
-                letterSpacing: '.3rem',
+                letterSpacing: '.2rem',
                 color: 'inherit',
                 textDecoration: 'none',
               }}
