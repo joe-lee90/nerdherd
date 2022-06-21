@@ -10,12 +10,12 @@ function TicketCard({ ticket }) {
   return (
     <div>
       <Accordion>
-        <AccordionSummary
+        <AccordionSummary 
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Event.name and date</Typography>
+          <Typography>Event name and date</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>

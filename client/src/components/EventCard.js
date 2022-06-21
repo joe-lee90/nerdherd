@@ -13,7 +13,7 @@ function EventCard({ event }) {
     <Card sx={{ maxWidth: 500 }}>
       <CardMedia
         component="img"
-        maxHeight="250"
+        maxheight="250"
         image={event.image}
         alt={event.name}
       />
@@ -27,7 +27,7 @@ function EventCard({ event }) {
         <Typography variant="h7" color="text.secondary">
         {Moment.parseZone(event.date).format('MM-DD-YY,  LT')} - {event.location}
         </Typography> 
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary"> 
           {event.description}
         </Typography>
       </CardContent>
