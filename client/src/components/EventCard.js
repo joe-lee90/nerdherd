@@ -13,7 +13,7 @@ function EventCard({ event }) {
     <Card sx={{ maxWidth: 500 }}>
       <CardMedia
         component="img"
-        height="250"
+        maxHeight="250"
         image={event.image}
         alt={event.name}
       />
@@ -39,4 +39,3 @@ function EventCard({ event }) {
 }
 
 export default EventCard
-
