@@ -12,6 +12,20 @@ gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
+gem "pay", "~> 3.0"
+
+# To use Stripe, also include:
+gem "stripe", "~> 6.0"
+
+# To use Braintree + PayPal, also include:
+gem "braintree", "~> 4.7"
+
+# To use Paddle, also include:
+gem "paddle_pay", "~> 0.2"
+
+# To use Receipts gem for creating invoice and receipt PDFs, also include:
+gem "receipts", "~> 2.0"
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 

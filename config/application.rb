@@ -40,5 +40,7 @@ module Nerdherd
 
     # Use SameSite=Strict for all cookies to help protect against CSRF
     config.action_dispatch.cookies_same_site_protection = :strict
+
+    config.action_mailer.default_url_options = { host: "http://localhost:4000/" }
   end
 end
