@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -18,6 +19,10 @@ const NavBar = () => {
 
   const handleProfileClick = () => {
     navigate('/profile')
+  }
+
+  const handleCheckout = () => {
+    
   }
 
   return (
@@ -52,6 +57,11 @@ const NavBar = () => {
             <Tooltip title="Profile">
               <IconButton onClick={handleProfileClick} sx={{ p: 0 }}>
                 <Avatar/>
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Checkout">
+              <IconButton onClick={handleCheckout} sx={{ p: 0 }}>
+                <ShoppingCartIcon/>
               </IconButton>
             </Tooltip>
           </Box>
