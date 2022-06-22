@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom'
 
 const theme = createTheme();
 
-export default function SignUp({ setUser }) {
+export default function SignUp({ setCurrentUser }) {
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -32,7 +32,7 @@ export default function SignUp({ setUser }) {
     })
     .then((res) => res.json())
     .then((user) => {
-      setUser(user)
+      setCurrentUser(user)
       navigate('/home')})
   };
 

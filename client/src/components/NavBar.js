@@ -8,14 +8,12 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
-import { useAuthenticatedUser } from "../App";
 
 const NavBar = () => {
   const navigate = useNavigate();
-  const user = useAuthenticatedUser();
 
   const handleHomeClick = () => {
-    navigate('/')
+    navigate('/home')
   }
 
   const handleProfileClick = () => {

@@ -8,7 +8,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function TicketCard({ ticket }) {
   return (
-    <div>
+    <div className='ticket'>
       <Accordion>
         <AccordionSummary 
           expandIcon={<ExpandMoreIcon />}

@@ -5,7 +5,7 @@ import TicketContainer from '../components/TicketContainer'
 import { useNavigate } from 'react-router-dom'
 import Button from '@mui/material/Button';
 
-function UserProfilePage({ setUser }) {
+function UserProfilePage({ setCurrentUser }) {
   const navigate = useNavigate();
   const [tickets, setTickets] = useState([])
 
@@ -20,7 +20,8 @@ function UserProfilePage({ setUser }) {
       method: "DELETE",
     })
     .then(() => {
-      setUser(null)
+      setCurrentUser(null)
+      console.log('Logging out')
       navigate('/')})
   }
 

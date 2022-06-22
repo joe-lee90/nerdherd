@@ -11,7 +11,8 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: @user
+    current_user = User.find(session[:user_id])
+    render json: current_user
   end
 
   # POST /users
@@ -38,6 +39,8 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

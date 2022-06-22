@@ -14,23 +14,39 @@ export function useAuthenticatedUser(){
 }
 
 export default function App() {
-  const [user, setUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState('')
+  const [events, setEvents] = useState([])
 
   useEffect(() => {
-    fetch("/me")
-      .then((res) => (res.ok ? res.json() : Promise.resolve(null)))
-      .then(setUser)
+    fetch('/events')
+    .then((res) => res.json())
+    .then((data) => {
+      setEvents(data)
+      document.title = "nerdherd: Buy tickets for eSports and other nerdcore events!"})
   }, [])
 
+  useEffect(() => {
+    fetch("/auth")
+      .then(res => {
+        if(res.ok){
+          res.json().then(user => setCurrentUser(user))
+        }
+      })
+  }, []) 
+
+  console.log(currentUser)
+
+  // if(!currentUser) return <Login currentUser={currentUser} setCurrentUser={setCurrentUser} />
+
   return (
-    <UserContext.Provider value={user}>
+    <UserContext.Provider value={currentUser}>
       <div className="app">
         <NavBar />
         <Routes>
-          <Route path='/'        exact element={<Login user={user} setUser={setUser}/>}/>
-          <Route path='/home'    exact element={<Home/>}/>
-          <Route path='/signup'  exact element={<SignUp setUser={setUser}/>}/>
-          <Route path='/profile' exact element={<UserProfilePage setUser={setUser}/>}/>
+          <Route path='/'        exact element={<Login currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
+          <Route path='/home'    exact element={<Home events={events}/>}/>
+          <Route path='/signup'  exact element={<SignUp setCurrentUser={setCurrentUser}/>}/>
+          <Route path='/profile' exact element={<UserProfilePage setCurrentUser={setCurrentUser}/>}/>
         </Routes>
       </div>
     </UserContext.Provider>
