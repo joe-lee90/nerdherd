@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/auth", to: "users#show" 
 
+  get "checkout", to: "checkouts#show"
+  get "billing", to: "billing#show"
 end
