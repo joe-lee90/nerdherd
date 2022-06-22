@@ -10,8 +10,8 @@ puts "Seeding..."
 
 # Users
 # username, image
-nerdherd = User.create(username: "nerdherd", password_digest: BCrypt::Password.create("nerdherd"))
-zamboni  = User.create(username: "zamboni", password_digest: BCrypt::Password.create("zamboni"))
+nerdherd = User.create(username: "nerdherd", password_digest: BCrypt::Password.create("nerdherd"), )
+zamboni  = User.create(username: "zamboni", password_digest: BCrypt::Password.create("zamboni"), )
 
 # Events
 # name, game, image, location, date, description, sponsors, price
