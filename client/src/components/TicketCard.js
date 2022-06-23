@@ -15,7 +15,7 @@ function TicketCard({ ticket }) {
     fetch(`/myEvent/${ticket.event_id}`)
     .then((res) => res.json())
     .then((data) => setMyEvent(data))
-  })
+  }, [])
 
   console.log(myEvent)
 

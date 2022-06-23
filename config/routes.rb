@@ -9,7 +9,4 @@ Rails.application.routes.draw do
   get "/auth", to: "users#show" 
   get "mytix", to: "tickets#myTickets"
   get "myEvent/:id", to: "events#myEvent"
-
-  get "checkout", to: "checkouts#show"
-  get "billing", to: "billing#show"
 end
