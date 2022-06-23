@@ -2,9 +2,9 @@ import React from 'react'
 import EventCard from './EventCard'
 import './EventContainer.css'
 
-function EventContainer({ events }) {
+function EventContainer({ events, currentUser }) {
     let renderEvents = events.map((event) => {
-        return <EventCard key={event.id} event={event}/>
+        return <EventCard key={event.id} event={event} currentUser={currentUser}/>
     })
     
     return (

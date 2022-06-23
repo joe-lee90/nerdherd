@@ -17,9 +17,9 @@ class TicketsController < ApplicationController
 
   # POST /tickets
   def create
-    @ticket = Ticket.new(ticket_params)
+    @ticket = Ticket.create(ticket_params)
 
-    if @ticket.save
+    if @ticket.valid?
       render json: @ticket, status: :created, location: @ticket
     else
       render json: @ticket.errors, status: :unprocessable_entity
@@ -55,7 +55,7 @@ class TicketsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ticket_params
-      params.fetch(:ticket, {})
+      params.permit(:event_id, :user_id)
     end
 
     def authorize

@@ -74,9 +74,9 @@ dota     = Event.create(name: "The International 2022",
 # Tickets
 # active, event_id, user_id
 # tickets that belong to nerdherd are unsold tickets
-t1 = Ticket.create(active: true, event_id: cs.id, user_id: zamboni.id)
-t2 = Ticket.create(active: true, event_id: cs.id, user_id: nerdherd.id)
-t3 = Ticket.create(active: true, event_id: league.id, user_id: nerdherd.id)
+# t1 = Ticket.create(active: true, event_id: comiccon.id, user_id: nerdherd.id)
+# t2 = Ticket.create(active: true, event_id: cs.id, user_id: nerdherd.id)
+# t3 = Ticket.create(active: true, event_id: league.id, user_id: nerdherd.id)
 
 
 

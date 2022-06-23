@@ -8,7 +8,31 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Moment from 'moment'
 
-function EventCard({ event }) {
+function EventCard({ event, currentUser }) {
+
+  const handleBuy = (e) => {
+    e.preventDefault()
+
+    const data = {
+      "active": true,
+      "event_id": event.id,
+      "user_id": currentUser.id
+    }
+
+    const configObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(data)
+      }
+
+      fetch("/buy", configObj)
+      .then((res) => res.json())
+      .then((ticket) => console.log(ticket))
+    }
+
   return (
     <Card className='eventCard' sx={{ maxWidth: 500 }}>
       <CardMedia
@@ -32,7 +56,7 @@ function EventCard({ event }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button className='buyButton' size="small">${event.price} Buy</Button>
+        <Button className='buyButton' size="small" onClick={handleBuy}>${event.price} Buy</Button>
       </CardActions>
     </Card>
   )
