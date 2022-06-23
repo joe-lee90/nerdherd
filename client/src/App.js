@@ -21,8 +21,7 @@ export default function App() {
     fetch('/events')
     .then((res) => res.json())
     .then((data) => {
-      setEvents(data)
-      document.title = "nerdherd: Buy tickets for eSports and other nerdcore events!"})
+      setEvents(data)})
   }, [])
 
   useEffect(() => {
