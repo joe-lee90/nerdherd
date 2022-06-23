@@ -21,9 +21,9 @@ const NavBar = () => {
     navigate('/profile')
   }
 
-  const handleCheckout = () => {
+  // const handleCheckout = () => {
     
-  }
+  // }
 
   return (
     <AppBar position="static" style={{ background: '#E3EBF8' }}>
@@ -59,11 +59,11 @@ const NavBar = () => {
                 <Avatar/>
               </IconButton>
             </Tooltip>
-            <Tooltip title="Checkout">
+            {/* <Tooltip title="Checkout">
               <IconButton onClick={handleCheckout} sx={{ p: 0 }}>
                 <ShoppingCartIcon/>
               </IconButton>
-            </Tooltip>
+            </Tooltip> */}
           </Box>
         </Toolbar>
       </Container>

@@ -40,6 +40,11 @@ class EventsController < ApplicationController
     @event.destroy
   end
 
+  def myEvent
+    @event = Event.find(params[:id])
+    render json: @event
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event

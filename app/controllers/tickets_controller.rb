@@ -40,6 +40,13 @@ class TicketsController < ApplicationController
     @ticket.destroy
   end
 
+  def myTickets
+    current_user = User.find(session[:user_id])
+    mytix = Ticket.where(user_id: current_user.id)
+    
+    render json: mytix
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_ticket

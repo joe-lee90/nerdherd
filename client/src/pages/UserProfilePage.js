@@ -5,12 +5,12 @@ import TicketContainer from '../components/TicketContainer'
 import { useNavigate } from 'react-router-dom'
 import Button from '@mui/material/Button';
 
-function UserProfilePage({ setCurrentUser }) {
+function UserProfilePage({ currentUser, setCurrentUser }) {
   const navigate = useNavigate();
   const [tickets, setTickets] = useState([])
 
   useEffect(() => {
-    fetch('/tickets')
+    fetch('/mytix')
     .then((res) => res.json())
     .then((data) => setTickets(data))
   })
@@ -27,6 +27,7 @@ function UserProfilePage({ setCurrentUser }) {
 
   return (
     <div className='profilePage'>
+      Currently logged in as: {currentUser.username}
       <TicketContainer tickets={tickets} />
         <Button variant="outlined" color="error" onClick={handleLogout}>
           Logout

@@ -34,8 +34,6 @@ export default function App() {
       })
   }, []) 
 
-  console.log(currentUser)
-
   // if(!currentUser) return <Login currentUser={currentUser} setCurrentUser={setCurrentUser} />
 
   return (
@@ -46,7 +44,7 @@ export default function App() {
           <Route path='/'        exact element={<Login currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
           <Route path='/home'    exact element={<Home events={events}/>}/>
           <Route path='/signup'  exact element={<SignUp setCurrentUser={setCurrentUser}/>}/>
-          <Route path='/profile' exact element={<UserProfilePage setCurrentUser={setCurrentUser}/>}/>
+          <Route path='/profile' exact element={<UserProfilePage currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
         </Routes>
       </div>
     </UserContext.Provider>
